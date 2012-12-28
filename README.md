@@ -1,57 +1,67 @@
-node module for:
-http://code.google.com/p/google-diff-match-patch/ by Neil Fraser and contributors.
+## googlediff
 
-drop in the original code form svn of Neil Fraser's diff_match_patch.
-uses jsinc and a simple index.js file and thus it is easily updatable
+NPM package for [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) by Neil Fraser and contributors.
 
-to update just copy in here the 'demos' and 'javascript' folders
+This module is awesome because you can use exactly the same code on the serverside and on the client side. It is even compatible with Browserify.
 
-this module is also awesome because you can use exactrly the same code on the serverside 
-and on the client side.
+### Installation
 
-this module is built using https://github.com/shimondoodkin/jsinc
+`npm install googlediff`
 
-the test tests just that the modue is usable.
+### Build/Update
 
-see demos to learn how it works.
+Uses a simple index.js file to wrap the original code from Neil Fraser's diff_match_patch. To update just copy the 'demos' and 'javascript' folders into this repo's root.
 
-by Shimon Dookdin
+### Testing
 
-may be intalled with npm:
+The tests run by `npm test` (or `node test.js`) just do a basic sanity check of the NPM packaging. To test that the diff/match/patch code is in order, you can load up `javascript/diff_match_patch_test.html` in your browser and it will load and run the tests provided by the original project.
 
-    npm install googlediff
+### Usage
 
-demo:
-    var diff_match_patch=require('googlediff');
-    
-    var dmp =new diff_match_patch();
-    function launch() {
-      var text1 = "this is some test. blah blah blah";
-      var text2 = "this is other text. blah blah blah";
-      //dmp.Diff_Timeout = 1; // set 0 for no timeout
-    
-      var ms_start = (new Date()).getTime();
-      var d = dmp.diff_main(text1, text2);
-      var ms_end = (new Date()).getTime();
-    
-      if (true) {
-        dmp.diff_cleanupSemantic(d);
-      }
-      if (false) {
-        dmp.Diff_EditCost = 4;
-        dmp.diff_cleanupEfficiency(d);
-      }
-      //var ds = dmp.diff_prettyHtml(d);
-      //console.log(ds + '<br/>Time: ' + (ms_end - ms_start) / 1000 + 's');
-      console.log(d)
-    }
-    launch()
+For full documentation, see the original [google-diff-match-patch API Docs](http://code.google.com/p/google-diff-match-patch/wiki/API).
+
+Here's a quick usage example:
+
+```javascript
+var diff_match_patch = require('googlediff');
+var dmp = new diff_match_patch();
+
+var text1 = "this is some test. blah blah blah";
+var text2 = "this is other text. blah blah blah";
+
+var diff = dmp.diff_main(text1, text2);
+dmp.diff_cleanupSemantic(diff);
+
+console.log(diff);
+```
 
 output:
-    [ [ 0, 'this is ' ],
-      [ -1, 'some' ],
-      [ 1, 'other' ],
-      [ 0, ' te' ],
-      [ -1, 's' ],
-      [ 1, 'x' ],
-      [ 0, 't. blah blah blah' ] ]
+```json
+[ [ 0, 'this is ' ],
+  [ -1, 'some' ],
+  [ 1, 'other' ],
+  [ 0, ' te' ],
+  [ -1, 's' ],
+  [ 1, 'x' ],
+  [ 0, 't. blah blah blah' ] ]
+```
+
+For a much more compact diff format, you can use the delta format (which is sadly not documented):
+
+```javascript
+var delta = dmp.diff_toDelta(d);
+console.dir(delta);
+```
+
+output:
+
+```json
+'=8\t-4\t+other\t=3\t-1\t+x\t=17'
+```
+
+See `demos/` for the demos provided by google-diff-match-patch.
+
+### Credits
+
+Original [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) by Neil Fraser and contributors.
+This re-package was created by Shimon Dookdin and updated by Ryan Graham.
