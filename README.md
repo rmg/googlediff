@@ -2,7 +2,8 @@
 
 NPM package for [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) by Neil Fraser and contributors.
 
-This module is awesome because you can use exactly the same code on the serverside and on the client side. It is even compatible with Browserify.
+This module is awesome because you can use exactly the same code on the
+serverside and on the client side. It is even compatible with Browserify.
 
 ### Installation
 
@@ -10,15 +11,21 @@ This module is awesome because you can use exactly the same code on the serversi
 
 ### Build/Update
 
-Uses a simple index.js file to wrap the original code from Neil Fraser's diff_match_patch. To update just copy the 'demos' and 'javascript' folders into this repo's root.
+Uses a simple index.js file to wrap the original code from Neil Fraser's
+diff_match_patch. To update just copy the 'demos' and 'javascript' folders
+into this repo's root.
 
 ### Testing
 
-The tests run by `npm test` (or `node test.js`) just do a basic sanity check of the NPM packaging. To test that the diff/match/patch code is in order, you can load up `javascript/diff_match_patch_test.html` in your browser and it will load and run the tests provided by the original project.
+The tests run by `npm test` (or `node test.js`) just do a basic sanity check
+of the NPM packaging. To test that the diff/match/patch code is in order, you
+can load up `javascript/diff_match_patch_test.html` in your browser and it
+will load and run the tests provided by the original project.
 
 ### Usage
 
-For full documentation, see the original [google-diff-match-patch API Docs](http://code.google.com/p/google-diff-match-patch/wiki/API).
+For full documentation, see the original
+[google-diff-match-patch API Docs](http://code.google.com/p/google-diff-match-patch/wiki/API).
 
 Here's a quick usage example:
 
@@ -46,7 +53,8 @@ output:
   [ 0, 't. blah blah blah' ] ]
 ```
 
-For a much more compact diff format, you can use the delta format (which is sadly not documented):
+For a much more compact diff format, you can use the delta format (which is
+sadly not documented):
 
 ```javascript
 var delta = dmp.diff_toDelta(d);
@@ -64,4 +72,5 @@ See `demos/` for the demos provided by google-diff-match-patch.
 ### Credits
 
 Original [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) by Neil Fraser and contributors.
+
 This re-package was created by Shimon Dookdin and updated by Ryan Graham.
