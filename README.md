@@ -73,4 +73,4 @@ See `demos/` for the demos provided by google-diff-match-patch.
 
 Original [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) by Neil Fraser and contributors.
 
-This re-package was created by Shimon Dookdin and updated by Ryan Graham.
+This re-package was created by Shimon Doodkin (@shimondoodkin) and updated by Ryan Graham (@rmg).
