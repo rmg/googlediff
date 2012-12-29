@@ -20,6 +20,7 @@
     "type": "git",
     "url": "git://github.com/shimondoodkin/googlediff.git"
   },
+  "files": ["test.js", "index.js", "javascript/diff_match_patch_uncompressed.js"],
   "scripts": {
     "test": "node test.js"
   },
