@@ -3,7 +3,7 @@
 NPM package for [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) by Neil Fraser and contributors.
 
 This module is awesome because you can use exactly the same code on the
-serverside and on the client side. It is even compatible with Browserify.
+server side and on the client side. It is even compatible with Browserify.
 
 ### Installation
 
@@ -11,8 +11,8 @@ serverside and on the client side. It is even compatible with Browserify.
 
 ### Build/Update
 
-Uses a simple index.js file to wrap the original code from Neil Fraser's
-diff_match_patch. To update just copy the 'demos' and 'javascript' folders
+Uses a simple `index.js` file to wrap the original code from Neil Fraser's
+diff_match_patch. To update just copy the `demos` and `javascript` folders
 into this repo's root.
 
 ### Testing
@@ -29,7 +29,7 @@ For full documentation, see the original
 
 Here's a quick usage example:
 
-```javascript
+```JavaScript
 var diff_match_patch = require('googlediff');
 var dmp = new diff_match_patch();
 
@@ -56,7 +56,7 @@ output:
 For a much more compact diff format, you can use the delta format (which is
 sadly not documented):
 
-```javascript
+```JavaScript
 var delta = dmp.diff_toDelta(d);
 console.dir(delta);
 ```
